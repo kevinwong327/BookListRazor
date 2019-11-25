@@ -23,7 +23,7 @@ namespace BookListRazor.Pages.BookList
         public void OnGet(int id)
         {
             Book = _db.Book.Find(id);
-            //Book = _db.Book.Where(b => b.Id == id).FirstOrDefault(); ;
+            
         }
     }
 }
