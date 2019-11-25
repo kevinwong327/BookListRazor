@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BookListRazor.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookListRazor.Pages.BookList
 {
@@ -17,9 +18,9 @@ namespace BookListRazor.Pages.BookList
         }
 
         public IEnumerable<Book> Books { get; set; }
-        public void OnGet()
+        public async Task OnGet()
         {
-
+            Books = await _db.Book.ToListAsync();
         }
     }
 }
