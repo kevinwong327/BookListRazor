@@ -15,6 +15,9 @@ namespace BookListRazor.Pages.BookList
         {
             _db = db;
         }
+        
+        [TempData]
+        public string Message { get; set; }
 
         [BindProperty]
         public Book Book { get; set; }
@@ -32,6 +35,7 @@ namespace BookListRazor.Pages.BookList
 
             _db.Book.Add(Book);
             await _db.SaveChangesAsync();
+            Message = "Book has been created successfully.";
             return RedirectToPage("Index");
         }
     }
